@@ -334,7 +334,7 @@
 
                <!-- or we can start it just with a click -->
               
-              <button class="btn" id="cameraButton" onClick="counter()">Camera Feed On</button>
+              <button class="btn" id="cameraButton" onClick="videoCamera()">Camera Feed On</button>
               <br><br>
 
              
@@ -342,10 +342,10 @@
                 
 				function videoCamera() {
 
-		                var camBtn = document.getElementById('cameraButton')
+		                // var camBtn = document.getElementById('cameraButton')
 
-		                if (camBtn.innerHTML == "Camera Feed On") {
-		                	camBtn.innerHTML = "Camera Feed Off"
+		                if (document.getElementById('cameraButton').innerHTML == "Camera Feed On") {
+		                	document.getElementById('cameraButton').innerHTML = "Camera Feed Off";
 
 		                	$.ajax({
 							type:'GET',
@@ -354,7 +354,7 @@
 							success: function(result){}
 							});
 		                } else {
-		                	camBtn.innerHTML = "Camera Feed On"
+		                	document.getElementById('cameraButton').innerHTML = "Camera Feed On";
 
 		                	$.ajax({
 							type:'GET',
