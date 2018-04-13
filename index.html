@@ -222,7 +222,14 @@
                   if (starshow.checked == true) {
                     $.ajax({
                     type:'GET',
-                    url:'http://10.10.90.113/cgi-bin/lightsOn.cgi',
+                    url:'http://10.10.90.113/cgi-bin/lightson.cgi',
+                    contentType: 'application/json',
+                    success: function(result){}
+                    });
+
+                    $.ajax({
+                    type:'GET',
+                    url:'http://10.10.90.113/cgi-bin/motoron.cgi',
                     contentType: 'application/json',
                     success: function(result){}
                     });
