@@ -390,7 +390,7 @@
 
                <!-- or we can start it just with a click -->
               
-              <button class="btn" id="cameraButton" onClick="videoCamera()">Camera Feed On</button>
+              <button class="btn" id="cameraButton" onClick="videoCamera()">Turn on Camera Feed</button>
               <br><br>
 
               <button class="btn"  onClick="vidOFF()">vifof</button>
@@ -409,8 +409,8 @@
                 
 				function videoCamera() {
 
-		                if (document.getElementById('cameraButton').innerHTML == "Camera Feed On") {
-		                	document.getElementById('cameraButton').innerHTML = "Camera Feed Off";
+		                if (document.getElementById('cameraButton').innerHTML == "Turn on Camera Feed") {
+		                	document.getElementById('cameraButton').innerHTML = "Turn off Camera Feed";
 
 		                	// document.getElementById('vidfeed').width = 660;
 
@@ -423,7 +423,7 @@
 							success: function(result){}
 							});
 		                } else {
-		                	document.getElementById('cameraButton').innerHTML = "Camera Feed On";
+		                	document.getElementById('cameraButton').innerHTML = "Turn on Camera Feed";
 
 		                	// document.getElementById('vidfeed').width = 0;
 
