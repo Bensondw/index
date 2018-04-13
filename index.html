@@ -198,12 +198,7 @@
                 
               </table>
              
-              <button class="btn" id="startBedtime" onClick="bedtime()">
-
-              Start Bedtime
-
-
-              </button>
+              <button class="btn" id="startBedtime" onClick="bedtime()">Start Bedtime</button>
               
               <script type="text/javascript">
 
@@ -211,52 +206,97 @@
 
                 function bedtime() {
 
-                  if (document.getElementById('startBedtime').innerHTML == "Start Bedtime") {
-
-                  }
-
                   var starshow = document.getElementById('lightSlider');
                   var music = document.getElementById('musicSlider');
                   var motion = document.getElementById('motionSlider');
 
-                  if (starshow.checked == true) {
+                  if (document.getElementById('startBedtime').innerHTML == "Start Bedtime") {
+                  	document.getElementById('startBedtime').innerHTML = "Pause";
 
-                  	document.getElementById('starLights').innerHTML = "Playing";
+                  	if (starshow.checked == true) {
 
-                    $.ajax({
-                    type:'GET',
-                    url:'http://10.10.90.113/cgi-bin/lightson.cgi',
-                    contentType: 'application/json',
-                    success: function(result){}
-                    });
+	                  	document.getElementById('starLights').innerHTML = "Playing";
 
-                    $.ajax({
-                    type:'GET',
-                    url:'http://10.10.90.113/cgi-bin/motoron.cgi',
-                    contentType: 'application/json',
-                    success: function(result){}
-                    });
-                  }
+	                    $.ajax({
+		                    type:'GET',
+		                    url:'http://10.10.90.113/cgi-bin/lightson.cgi',
+		                    contentType: 'application/json',
+		                    success: function(result){}
+	                    });
 
-                  if (music.checked == true) {
-                    $.ajax({
-                    type:'GET',
-                    url:'http://10.10.90.113/cgi-bin/musicOn.cgi',
-                    contentType: 'application/json',
-                    success: function(result){}
-                    });
-                  }
+	                    $.ajax({
+		                    type:'GET',
+		                    url:'http://10.10.90.113/cgi-bin/motoron.cgi',
+		                    contentType: 'application/json',
+		                    success: function(result){}
+		                    });
+					}
 
-                  // the next one might be where we need a while loop, or see if we can figure out the script to just send data every so often but still be sensing all the time
+					if (music.checked == true) {
+							$.ajax({
+								type:'GET',
+								url:'http://10.10.90.113/cgi-bin/musicOn.cgi',
+								contentType: 'application/json',
+								success: function(result){}
+							});
+					}
+
+						// the next one might be where we need a while loop, or see if we can figure out the script to just send data every so often but still be sensing all the time
+
+					if (motion.checked == true) {
+							$.ajax({
+								type:'GET',
+								url:'http://10.10.90.113/cgi-bin/motionOn.cgi',
+								contentType: 'application/json',
+								success: function(result){}
+							});
+					}
+
+				 } else {
+				 	document.getElementById('startBedtime').innerHTML = "Start Bedtime";
+
+                  	if (starshow.checked == true) {
+
+	                  	document.getElementById('starLights').innerHTML = "Playing";
+
+	                    $.ajax({
+		                    type:'GET',
+		                    url:'http://10.10.90.113/cgi-bin/lightsoff.cgi',
+		                    contentType: 'application/json',
+		                    success: function(result){}
+	                    });
+
+	                    $.ajax({
+		                    type:'GET',
+		                    url:'http://10.10.90.113/cgi-bin/motoroff.cgi',
+		                    contentType: 'application/json',
+		                    success: function(result){}
+		                    });
+					}
+
+					if (music.checked == true) {
+							$.ajax({
+								type:'GET',
+								url:'http://10.10.90.113/cgi-bin/musicOff.cgi',
+								contentType: 'application/json',
+								success: function(result){}
+							});
+					}
+
+						// the next one might be where we need a while loop, or see if we can figure out the script to just send data every so often but still be sensing all the time
+
+					if (motion.checked == true) {
+							$.ajax({
+								type:'GET',
+								url:'http://10.10.90.113/cgi-bin/motionoff.cgi',
+								contentType: 'application/json',
+								success: function(result){}
+							});
+				 }
+
                   
-                  if (motion.checked == true) {
-                    $.ajax({
-                    type:'GET',
-                    url:'http://10.10.90.113/cgi-bin/motionOn.cgi',
-                    contentType: 'application/json',
-                    success: function(result){}
-                    });
-                  }
+
+                  
 
                 }
                 
