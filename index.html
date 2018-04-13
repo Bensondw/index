@@ -337,8 +337,19 @@
               <button class="btn" id="cameraButton" onClick="videoCamera()">Camera Feed On</button>
               <br><br>
 
+              <button class="btn"  onClick="vidOFF()">vifof</button>
              
               <script>
+
+              	function vidOFF() {
+              		$.ajax({
+					type:'GET',
+					url:'http://10.37.90.113/cgi-bin/stopCam.cgi',
+					contentType: 'application/json',
+					success: function(result){}
+					});
+              	}
+
                 
 				function videoCamera() {
 
