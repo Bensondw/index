@@ -1,0 +1,78 @@
+<html>
+  <head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<style>
+
+body {background-color: lightyellow}
+
+h1 {color:blue}
+
+</style>
+
+
+
+<body>
+<h1>Range Test</h1>
+<div id = "test">
+</div>
+
+		<script>
+		
+	function blue() {
+			$(document).ready(function() {
+  			$.getJSON('http://localhost/cgi-bin/blue.cgi', function(data) {
+  			console.log(data);
+        	$('#test').html("Black Mamba: " + data);
+    		});
+			});
+        }
+         
+         function prep() {
+			$.ajax({
+			type: 'GET',
+			url: 'http://localhost/cgi-bin/prep.cgi',
+			contentType: "application/json",
+			success: function(result){
+			}
+			});
+        }        
+        
+        function fire() {
+			$.ajax({
+			type: 'GET',
+			url: 'http://localhost/cgi-bin/fire.cgi',
+			contentType: "application/json",
+			success: function(result){
+			}
+			});
+        }    
+               
+		</script>
+
+<div style="text-align:center">
+
+<h1>Death Star</h1>
+
+<br><br>
+
+
+
+
+		<button onclick="blue();">Check Bluetooth</button>
+		
+		<button onclick="prep();">Prep</button>			<!--maybe make this appear after 1st button pressed and ok received-->
+		
+		<button onclick="fire();">Fire</button>					<!--maybe make this appear after 2nd button pressed-->
+		
+
+		
+
+
+
+  </body>
+</html>
+

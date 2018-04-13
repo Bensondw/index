@@ -1,0 +1,100 @@
+<html>
+  <head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<style>
+
+body {background-color: yellow}
+
+h1 {color:blue}
+
+</style>
+
+
+
+<body>
+
+		<script>
+		
+		function motorcw() {
+			$.ajax({
+			type: 'GET',
+			url: 'http://10.10.104.72/cgi-bin/motorcw.cgi',
+			contentType: "application/json",
+			success: function(result){
+			}
+			});
+        }
+         
+         function motorccw() {
+			$.ajax({
+			type: 'GET',
+			url: 'http://10.10.104.72/cgi-bin/motorccw.cgi',
+			contentType: "application/json",
+			success: function(result){
+			}
+			});
+        }        
+        
+        function stop() {
+			$.ajax({
+			type: 'GET',
+			url: 'http://10.10.104.72/cgi-bin/stop.cgi',
+			contentType: "application/json",
+			success: function(result){
+			}
+			});
+        }    
+        
+        		function one() {
+			$.ajax({
+			type: 'GET',
+			url: 'http://10.10.104.72/cgi-bin/one.cgi',
+			contentType: "application/json",
+			success: function(result){
+			}
+			});
+        }  
+        
+        		function two() {
+			$.ajax({
+			type: 'GET',
+			url: 'http://10.10.104.72/cgi-bin/two.cgi',
+			contentType: "application/json",
+			success: function(result){
+			}
+			});
+        }
+        
+		</script>
+
+<div style="text-align:center">
+
+<h1>Motor Control Page</h1>
+
+<br><br>
+
+
+
+
+		<button onclick="motorcw();">Motor CW</button>
+		
+		<button onclick="motorccw();">Motor CCW</button>
+		
+		<button onclick="stop();">Stop Motor</button>
+		<div>
+		<button onclick="one();">Spin At 100</button>
+		
+		<button onclick="two();">Spin At 1000</button>
+		
+
+		
+
+
+
+  </body>
+</html>
+
