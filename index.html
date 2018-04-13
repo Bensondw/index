@@ -337,9 +337,20 @@
               <button class="btn" id="cameraButton" onClick="videoCamera()">Camera Feed On</button>
               <br><br>
 
-             
+             <button class="btn" onClick="vidOFF()">vid off</button>
               <script>
-                function videoCamera() {
+                
+
+		function vidOFF() {
+			$.ajax({
+			type:'GET',
+			url:'http://10.37.90.113/cgi-bin/stopCam.cgi',
+			contentType:'application/json',
+			success: function(result){}
+			});
+		}
+
+		function videoCamera() {
 
                 var camBtn = document.getElementById('cameraButton')
 
@@ -360,7 +371,7 @@
 					url:'http://10.37.90.113/cgi-bin/stopCam.cgi',
 					contentType: 'application/json',
 					success: function(result){}
-                }
+                });
 		  
 
 		  		
