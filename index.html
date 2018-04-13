@@ -341,17 +341,31 @@
               <script>
                 function videoCamera() {
 
+                var camBtn = document.getElementById('cameraButton')
 
-		  document.getElementById('cameraButton').innerHTML = "Camera Feed Off";
+                if (camBtn.innerHTML == "Camera Feed On") {
+                	camBtn.innerHTML = "Camera Feed Off"
+
+                	$.ajax({
+					type:'GET',
+					url:'http://10.37.90.113/cgi-bin/startCam.cgi',
+					contentType: 'application/json',
+					success: function(result){}
+					});
+                } else {
+                	camBtn.innerHTML = "Camera Feed On"
+
+                	$.ajax({
+					type:'GET',
+					url:'http://10.37.90.113/cgi-bin/stopCam.cgi',
+					contentType: 'application/json',
+					success: function(result){}
+                }
+		  
 
 		  		
 
-                  $.ajax({
-                  type:'GET',
-                  url:'http://10.37.90.113/cgi-bin/startCam.cgi',
-                  contentType: 'application/json',
-                  success: function(result){}
-                  });
+                  
                 }
               </script>
 
