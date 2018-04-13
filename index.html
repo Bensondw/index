@@ -220,6 +220,9 @@
                   var motion = document.getElementById('motionSlider');
 
                   if (starshow.checked == true) {
+
+                  	document.getElementById('starLights').innerHTML = "Playing";
+
                     $.ajax({
                     type:'GET',
                     url:'http://10.10.90.113/cgi-bin/lightson.cgi',
@@ -418,25 +421,10 @@
               
               
               
-              <!-- <button class="btn" onClick="stop()">Audio Feed</button> this button could call the script that starts the icecast server -->
-
               
-              <!-- this below is a placeholder iframe to demonstrate the idea -->
-              <!-- <iframe width="560" height="315" src="192.168.255.254:8000" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen> -->
-
-               <!--  <iframe width="560" height="315" src="http://10.37.175.105:8000/" frameborder="1" allowfullscreen>
-                
-              </iframe> -->
-
-
-
-              <!-- <audio src="http://10.37.175.105:8000/;"></audio>
-
-              <audio controls src="http://10.37.175.105:8000/;"></audio> -->
 
               <h5 class="center">Current room conditions</h5>
 
-              <!-- make a table here probably -->
              <table>
                 <tr>
                   <th>Measure</th>
@@ -445,12 +433,12 @@
                 </tr>
                 <tr>
                   <td>Temperature:</td>
-                  <td>72</td>
+                  <td id="temp" >72</td>
                   
                 </tr>
                 <tr>
                   <td>Humidity:</td>
-                  <td>14%</td>
+                  <td id="humidity" >14%</td>
                   
                 </tr>
                 <tr>
@@ -464,33 +452,22 @@
                   
                 </tr>
                 <tr>
-                  <td>Light Show: </td>
-                  <td>Playing</td>
+                  <td>Star Show: </td>
+                  <td id="starLights" >Not Playing</td>
                   
                 </tr>
-                <tr>
+                <!-- <tr>
                   <td>Room: </td>
                   <td>Dark</td>
                   
-                </tr>
+                </tr> -->
               </table>
 
               
 
               <br>
 
-              
-              <!-- The following script will turn on the mic and start the icecast server -->
-              <script>
-          //        $(document).ready(function(){
-          //                 // $.getJSON("http://10.37.174.154/cgi-bin/bluth.cgi", function(data) {
-          //                 //     $('#wow').append("Your device: " + data);
-          //                 // });    
-
-          // // we can use these functions to load the sensors like temp, humidity, 
-
-          //        });
-             </script> 
+       
               
             </div>
             
