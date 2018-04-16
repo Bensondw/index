@@ -236,6 +236,9 @@
 
 						if (music.checked == true) 
 						{
+
+							document.getElementById('musicPlaying').innerHTML = "Playing";
+
 							$.ajax({
 								type:'GET',
 								url:'http://10.10.90.113/cgi-bin/musicOn.cgi',
@@ -244,7 +247,7 @@
 							});
 						}
 
-						// the next one might be where we need a while loop, or see if we can figure out the script to just send data every so often but still be sensing all the time
+						 //need to add some logic to the motion script to be able to turn off the other scripts for like a minute if motion is detected and then restart them 
 
 						if (motion.checked == true) {
 							$.ajax({
@@ -254,86 +257,55 @@
 								success: function(result){}
 							});
 						}
+						return;
 
 					}
 
-				} //else {
-				// 	document.getElementById('startBedtime').innerHTML = "Start Bedtime";
+					if (document.getElementById('startBedtime').innerHTML == "Pause")
+					{
+						document.getElementById('startBedtime').innerHTML = "Start Bedtime"
 
-				// 	if (starshow.checked == true) {
+						// turn off all the scripts
 
-				// 		document.getElementById('starLights').innerHTML = "Playing";
+						$.ajax({
+							type:'GET',
+							url:'http://10.10.90.113/cgi-bin/lightsoff.cgi',
+							contentType: 'application/json',
+							success: function(result){}
+						});
 
-				// 		$.ajax({
-				// 			type:'GET',
-				// 			url:'http://10.10.90.113/cgi-bin/lightsoff.cgi',
-				// 			contentType: 'application/json',
-				// 			success: function(result){}
-				// 		});
+						$.ajax({
+							type:'GET',
+							url:'http://10.10.90.113/cgi-bin/motoroff.cgi',
+							contentType: 'application/json',
+							success: function(result){}
+						});
 
-				// 		$.ajax({
-				// 			type:'GET',
-				// 			url:'http://10.10.90.113/cgi-bin/motoroff.cgi',
-				// 			contentType: 'application/json',
-				// 			success: function(result){}
-				// 		});
-				// 	}
+						$.ajax({
+							type:'GET',
+							url:'http://10.10.90.113/cgi-bin/motionOff.cgi',
+							contentType: 'application/json',
+							success: function(result){}
+						});
 
-				// 	if (music.checked == true) {
-				// 		$.ajax({
-				// 			type:'GET',
-				// 			url:'http://10.10.90.113/cgi-bin/musicOff.cgi',
-				// 			contentType: 'application/json',
-				// 			success: function(result){}
-				// 		});
-				// 	}
+						$.ajax({
+							type:'GET',
+							url:'http://10.10.90.113/cgi-bin/musicOff.cgi',
+							contentType: 'application/json',
+							success: function(result){}
+						});
 
-				// 	// the next one might be where we need a while loop, or see if we can figure out the script to just send data every so often but still be sensing all the time
+						// change the text of current room status
 
-				// 	if (motion.checked == true) {
-				// 		$.ajax({
-				// 			type:'GET',
-				// 			url:'http://10.10.90.113/cgi-bin/motionoff.cgi',
-				// 			contentType: 'application/json',
-				// 			success: function(result){}
-				// 		});
-				// 	}
-				// }
+						document.getElementById('starLights').innerHTML = "Not Playing";
 
+						document.getElementById('musicPlaying').innerHTML = "Not Playing";
 
-				
+						return;
 
+					}
 
-
-                
-
-                // if the slider for light show is checked, call the script to start the light show
-                    // if the light show script is called, should update the text on the far right of the page to say it is now playing 
-
-
-
-                // if the music is checked, call the script for the music to start
-                    // update the text on the far right of the page to say music playing
-
-
-                // if the motion detection is checked, call the script to start looking for motion detection - probably give this a couple minute delay? maybe even have another slider to adjust that setting and send it as a parameter to the script
-
-                  // before this is called, should just say "not detecting" or something. after, it should say that status of motion
-
-                  // ^ need to figure out if that should just be put in a while loop, like the motion detection script should be called repeatedly, or if we can call it once, and have JSON feedback be returned constantly to the website. Do we really want that level of knowledge of motion though?
-
-                  // maybe we should call the script, and it will run for like 10-15 minutes and the script will be recording motion constantly, but then only uploading it to the website every ten minutes or so and not reporting like there was motion at 19:45 PM MDT, but just saying there has or has not been motion in the last ten minutes. the script locally would know the up-to-the-minute details, but can we call other cgi-bin scripts from each other?
-
-                  // if we can't call cgi-bin scripts from each other, then I think we should see if we can just constantly send JSON to the website, and then based on the JSON contents we will call other scripts like turn off the speakers and light show
-
-                  // if we can call cgi-bin scripts from other bin scripts though, we should do that for getting rid of unnecessary communication between pi and hosted site. 
-
-                  // also, we will send json at the end of the end/begin light show/music/motion detection to update the elements on the page that report if they are currently running or not
-
-
-
-                  // so the best options are: 1) figure out how to have the motion detection script just run constantly and send back data to the website while still just running, and 2) just call the motion detection script and based on what it reads, call the other scripts right from that script
-
+				} 
 
 
               </script>
@@ -390,10 +362,10 @@
 
                <!-- or we can start it just with a click -->
               
-              <button class="btn" id="cameraButton" onClick="videoCamera()">Turn on Camera Feed</button>
+              <!-- <button class="btn" id="cameraButton" onClick="videoCamera()">Turn on Camera Feed</button> -->
               <br><br>
 
-              <button class="btn"  onClick="vidOFF()">vifof</button>
+              <!-- <button class="btn"  onClick="vidOFF()">vifof</button> -->
              
               <script>
 
@@ -487,14 +459,10 @@
                   <td id="humidity" >14%</td>
                   
                 </tr>
+                
                 <tr>
-                  <td>Current Motion:</td>
-                  <td>No</td>
-                  
-                </tr>
-                <tr>
-                  <td>Motion in last ten minutes:</td>
-                  <td>Yes</td>
+                  <td>Music Playing:</td>
+                  <td id="musicPlaying">Yes</td>
                   
                 </tr>
                 <tr>
@@ -502,11 +470,7 @@
                   <td id="starLights" >Not Playing</td>
                   
                 </tr>
-                <!-- <tr>
-                  <td>Room: </td>
-                  <td>Dark</td>
-                  
-                </tr> -->
+                
               </table>
 
               
