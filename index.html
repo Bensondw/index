@@ -204,16 +204,7 @@
 
               	function start()
 	      		{
-	      			return $.ajax({
-	                            type:'GET',
-	                            url:'http://10.37.90.113/cgi-bin/piron.cgi',
-	                            contentType: 'application/json',
-	                            success: function(result)
-	                            {
-	                                $("#motionDetected").append(result);
-	                            }
-	                            
-	      			});
+
 	                        
 	      		}
 
@@ -263,15 +254,23 @@
 							document.getElementById('musicPlaying').innerHTML = "Playing";
 						}
 
-						 //need to add some logic to the motion script to be able to turn off the other scripts for like a minute if motion is detected and then restart them 
 
 						if (motion.checked == true) {
-							$.ajax({
-								type:'GET',
-								url:'http://10.37.90.113/cgi-bin/piron.cgi',
-								contentType: 'application/json',
-								success: function(result){}
-							});
+							return $.ajax({
+	                            type:'GET',
+	                            url:'http://10.37.90.113/cgi-bin/piron.cgi',
+	                            contentType: 'application/json',
+	                            success: function(result)
+	                            {
+	                                $("#motionDetected").append(Date() + " " + result);
+
+	                                if (result == "motion detected")
+	                                {
+	                                	pause();
+	                                }
+	                            }
+	                            
+	      					});
 						}
 						return;
 
