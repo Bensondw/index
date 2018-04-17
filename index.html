@@ -89,7 +89,7 @@
 
   </head>
 
-  <body>
+  <body onload="onload()">
 
     <!-- <div name="navigation div">
 
@@ -510,7 +510,7 @@
 
 
               <script>
-                   $(document).ready(function(){
+                   function onload(){
                             $.ajax({
                             type:'GET',
                             url:'http://10.10.90.113/cgi-bin/dhton.cgi',
