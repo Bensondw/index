@@ -349,17 +349,7 @@
 
               <h5>Camera Feed and Room Audio</h5>
 
-              <!-- This script will start the video feed server when the page loads -->
-             <!--  <script>
-                   $(document).ready(function(){
-                            $.ajax({
-                            type:'GET',
-                            url:'http://10.10.90.113/cgi-bin/startCam.cgi',
-                            contentType: 'application/json',
-                            success: function(result){}
-                            });    
-                   }
-               </script>  -->
+              
 
                <!-- or we can start it just with a click -->
               
@@ -399,6 +389,9 @@
 							contentType: 'application/json',
 							success: function(result){}
 							});
+
+		                	document.getElementById('vidfeed').contentDocument.location.reload(true);
+
 		                } else {
 		                	document.getElementById('cameraButton').innerHTML = "Turn on Camera Feed";
 
@@ -412,11 +405,15 @@
 							contentType: 'application/json',
 							success: function(result){}
 		                	});
+
+		                	document.getElementById('vidfeed').contentDocument.location.reload(true);
 		                }
               	}
               </script>
 
               <iframe id="vidfeed" width="660" height="500" src="http://10.37.90.113:9001/stream_simple.html" frameborder="1" allowfullscreen></iframe>
+
+
               
               <br>
 
@@ -482,6 +479,17 @@
 
               <br>
 
+
+              <script>
+                   $(document).ready(function(){
+                            $.ajax({
+                            type:'GET',
+                            url:'http://10.10.90.113/cgi-bin/dhton.cgi',
+                            contentType: 'application/json',
+                            success: function(result){}
+                            });    
+                   }
+               </script> 
        
               
             </div>
