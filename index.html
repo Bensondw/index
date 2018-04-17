@@ -363,6 +363,9 @@
               	function vidOFF() {
 
               			jQuery.get("http://10.37.90.113/cgi-bin/stopCam.cgi");
+              			var camIframe = document.getElementById('vidfeed');
+              			camIframe.contentWindow.location.reload(true);
+
 
 
      //          		$.ajax({
@@ -375,6 +378,10 @@
 
                 
 				function videoCamera() {
+
+						var camIframe = document.getElementById('vidfeed');
+
+						
 
 		                if (document.getElementById('cameraButton').innerHTML == "Turn on Camera Feed") {
 		                	document.getElementById('cameraButton').innerHTML = "Turn off Camera Feed";
@@ -390,7 +397,7 @@
 							success: function(result){}
 							});
 
-		                	document.getElementById('vidfeed').contentDocument.location.reload(true);
+		                	camIframe.contentWindow.location.reload(true);
 
 		                } else {
 		                	document.getElementById('cameraButton').innerHTML = "Turn on Camera Feed";
@@ -406,7 +413,7 @@
 							success: function(result){}
 		                	});
 
-		                	document.getElementById('vidfeed').contentDocument.location.reload(true);
+		                	camIframe.contentWindow.location.reload(true);
 		                }
               	}
               </script>
