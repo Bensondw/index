@@ -202,7 +202,11 @@
               
               <script type="text/javascript">
                 
+                var first = true;
+
                 function bedtime() {
+
+                	
 
 					var starshow = document.getElementById('lightSlider');
 					var music = document.getElementById('musicSlider');
@@ -233,13 +237,16 @@
 						}
 
 						if (music.checked == true) 
-						{
-							$.ajax({
-								type:'GET',
-								url:'http://10.37.7.133/cgi-bin/playSong.cgi',
-								contentType: 'application/json',
-								success: function(result){}
-							});
+						{	
+							if (first == true) {
+								$.ajax({
+									type:'GET',
+									url:'http://10.37.7.133/cgi-bin/playSong.cgi',
+									contentType: 'application/json',
+									success: function(result){}
+								});
+							}
+							
 
 							$.ajax({
 								type:'GET',
@@ -265,6 +272,9 @@
 	                            
 	      					});
 						}
+
+						first = false;
+
 						return;
 
 					}
