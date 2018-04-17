@@ -237,7 +237,7 @@
 						if (music.checked == true) 
 						{
 
-							document.getElementById('musicPlaying').innerHTML = "Playing";
+							
 
 							$.ajax({
 								type:'GET',
@@ -245,6 +245,8 @@
 								contentType: 'application/json',
 								success: function(result){}
 							});
+
+							$.document.getElementById('musicPlaying').innerHTML = "Playing";
 						}
 
 						 //need to add some logic to the motion script to be able to turn off the other scripts for like a minute if motion is detected and then restart them 
