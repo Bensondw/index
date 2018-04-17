@@ -215,18 +215,16 @@
 						if (starshow.checked == true) 
 						{
 
-							
-
 							$.ajax({
 								type:'GET',
-								url:'http://192.168.1.10/cgi-bin/lightson.cgi',
+								url:'http://10.37.7.133/cgi-bin/lightson.cgi',
 								contentType: 'application/json',
 								success: function(result){}
 							});
 
 							$.ajax({
 								type:'GET',
-								url:'http://192.168.1.10/cgi-bin/motoron.cgi',
+								url:'http://10.37.7.133/cgi-bin/motoron.cgi',
 								contentType: 'application/json',
 								success: function(result){}
 							});
@@ -238,14 +236,14 @@
 						{
 							$.ajax({
 								type:'GET',
-								url:'http://192.168.1.10/cgi-bin/playSong.cgi',
+								url:'http://10.37.7.133/cgi-bin/playSong.cgi',
 								contentType: 'application/json',
 								success: function(result){}
 							});
 
 							$.ajax({
 								type:'GET',
-								url:'http://192.168.1.10/cgi-bin/unmuteMusic.cgi',
+								url:'http://10.37.7.133/cgi-bin/unmuteMusic.cgi',
 								contentType: 'application/json',
 								success: function(result){}
 							});
@@ -257,7 +255,7 @@
 						if (motion.checked == true) {
 							return $.ajax({
 	                            type:'GET',
-	                            url:'http://192.168.1.10/cgi-bin/piron.cgi',
+	                            url:'http://10.37.7.133/cgi-bin/piron.cgi',
 	                            contentType: 'application/json',
 	                            success: function(result)
 	                            {
@@ -279,28 +277,28 @@
 
 						$.ajax({
 							type:'GET',
-							url:'http://192.168.1.10/cgi-bin/lightsoff.cgi',
+							url:'http://10.37.7.133/cgi-bin/lightsoff.cgi',
 							contentType: 'application/json',
 							success: function(result){}
 						});
 
 						$.ajax({
 							type:'GET',
-							url:'http://192.168.1.10/cgi-bin/motoroff.cgi',
+							url:'http://10.37.7.133/cgi-bin/motoroff.cgi',
 							contentType: 'application/json',
 							success: function(result){}
 						});
 
 						$.ajax({
 							type:'GET',
-							url:'http://192.168.1.10/cgi-bin/piroff.cgi',
+							url:'http://10.37.7.133/cgi-bin/piroff.cgi',
 							contentType: 'application/json',
 							success: function(result){}
 						});
 
 						$.ajax({
 							type:'GET',
-							url:'http://192.168.1.10/cgi-bin/muteMusic.cgi',
+							url:'http://10.37.7.133/cgi-bin/muteMusic.cgi',
 							contentType: 'application/json',
 							success: function(result){}
 						});
@@ -326,28 +324,28 @@
 
 						$.ajax({
 							type:'GET',
-							url:'http://192.168.1.10/cgi-bin/lightsoff.cgi',
+							url:'http://10.37.7.133/cgi-bin/lightsoff.cgi',
 							contentType: 'application/json',
 							success: function(result){}
 						});
 
 						$.ajax({
 							type:'GET',
-							url:'http://192.168.1.10/cgi-bin/motoroff.cgi',
+							url:'http://10.37.7.133/cgi-bin/motoroff.cgi',
 							contentType: 'application/json',
 							success: function(result){}
 						});
 
 						$.ajax({
 							type:'GET',
-							url:'http://192.168.1.10/cgi-bin/piroff.cgi',
+							url:'http://10.37.7.133/cgi-bin/piroff.cgi',
 							contentType: 'application/json',
 							success: function(result){}
 						});
 
 						$.ajax({
 							type:'GET',
-							url:'http://192.168.1.10/cgi-bin/muteMusic.cgi',
+							url:'http://10.37.7.133/cgi-bin/muteMusic.cgi',
 							contentType: 'application/json',
 							success: function(result){}
 						});
@@ -378,22 +376,7 @@
 
               
               
-              <script>
-                function counter() {
-                  $.ajax({
-                  type:'GET',
-                  url:'http://10.10.110.137/cgi-bin/counter.cgi?value=True',
-                  contentType: 'applicatin/json',
-                  success: function(result){}
-                  });
-                  $.ajax({
-                  type:'GET',
-                  url:'http://10.10.110.137/cgi-bin/counter.cgi?value=True',
-                  contentType: 'applicatin/json',
-                  success: function(result){}
-                  });
-                }
-              </script>
+             
 
                   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               
@@ -420,7 +403,7 @@
 
               	function vidOFF() {
 
-              			jQuery.get("http://192.168.1.10/cgi-bin/stopCam.cgi");
+              			jQuery.get("http://10.37.7.133/cgi-bin/stopCam.cgi");
 
 
 						
@@ -441,7 +424,7 @@
 
      //          		$.ajax({
 					// type:'GET',
-					// url:'http://192.168.1.10/cgi-bin/stopCam.cgi',
+					// url:'http://10.37.7.133/cgi-bin/stopCam.cgi',
 					// contentType: 'application/json',
 					// success: function(result){}
 					// });
@@ -464,7 +447,7 @@
 
 		                	$.ajax({
 							type:'GET',
-							url:'http://192.168.1.10/cgi-bin/startCam.cgi',
+							url:'http://10.37.7.133/cgi-bin/startCam.cgi',
 							contentType: 'application/json',
 							success: function(result){}
 							});
@@ -484,7 +467,7 @@
 
 		                	$.ajax({
 							type:'GET',
-							url:'http://192.168.1.10/cgi-bin/stopCam.cgi',
+							url:'http://10.37.7.133/cgi-bin/stopCam.cgi',
 							contentType: 'application/json',
 							success: function(result){}
 		                	});
@@ -498,7 +481,7 @@
               	}
               </script>
 
-              <iframe id="vidfeed" width="660" height="500" src="http://192.168.1.10:9001/stream_simple.html" frameborder="1" allowfullscreen></iframe>
+              <iframe id="vidfeed" width="660" height="500" src="http://10.37.7.133:9001/stream_simple.html" frameborder="1" allowfullscreen></iframe>
 
 
               
@@ -509,7 +492,7 @@
 
 
               <audio controls>
-                <source src="http://192.168.1.10:8000/raspi" >
+                <source src="http://10.37.7.133:8000/raspi" >
                 <!-- <source src="horse.mp3" type="audio/mpeg"> -->
               Your browser does not support the audio element.
               </audio>
@@ -582,7 +565,7 @@
                             // success: function(result){}
                             // });  
 
-                            jQuery.get("http://192.168.1.10/cgi-bin/dhton.cgi");
+                            jQuery.get("http://10.37.7.133/cgi-bin/dhton.cgi");
 
                             videoCamera();
 
@@ -593,7 +576,7 @@
                             // success: function(result){}
                             // });   
 
-                            jQuery.get("http://192.168.1.10/cgi-bin/micon.cgi");
+                            jQuery.get("http://10.37.7.133/cgi-bin/micon.cgi");
                    }
                </script> 
        
