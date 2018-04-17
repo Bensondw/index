@@ -241,7 +241,7 @@
 
 							$.ajax({
 								type:'GET',
-								url:'http://10.10.90.113/cgi-bin/musicOn.cgi',
+								url:'http://10.10.90.113/cgi-bin/playSong.cgi',
 								contentType: 'application/json',
 								success: function(result){}
 							});
@@ -252,7 +252,7 @@
 						if (motion.checked == true) {
 							$.ajax({
 								type:'GET',
-								url:'http://10.10.90.113/cgi-bin/motionOn.cgi',
+								url:'http://10.10.90.113/cgi-bin/piron.cgi',
 								contentType: 'application/json',
 								success: function(result){}
 							});
@@ -283,14 +283,14 @@
 
 						$.ajax({
 							type:'GET',
-							url:'http://10.10.90.113/cgi-bin/motionOff.cgi',
+							url:'http://10.10.90.113/cgi-bin/piroff.cgi',
 							contentType: 'application/json',
 							success: function(result){}
 						});
 
 						$.ajax({
 							type:'GET',
-							url:'http://10.10.90.113/cgi-bin/musicOff.cgi',
+							url:'http://10.10.90.113/cgi-bin/muteMusic.cgi',
 							contentType: 'application/json',
 							success: function(result){}
 						});
@@ -473,14 +473,13 @@
                 
               </table>
 
-              
+              <button class="btn" id="" onClick="dhton()"> Refresh status </button>
 
               <br>
 
        
               
             </div>
-            
             
         </div>
   			
