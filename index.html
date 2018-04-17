@@ -511,20 +511,24 @@
 
               <script>
                    function onload(){
-                            $.ajax({
-                            type:'GET',
-                            url:'http://10.10.90.113/cgi-bin/dhton.cgi',
-                            contentType: 'application/json',
-                            success: function(result){}
-                            });  
+                            // $.ajax({
+                            // type:'GET',
+                            // url:'http://10.10.90.113/cgi-bin/dhton.cgi',
+                            // contentType: 'application/json',
+                            // success: function(result){}
+                            // });  
+
+                            jQuery.get("http://10.37.90.113/cgi-bin/dhton.cgi");
 
 
-                            $.ajax({
-                            type:'GET',
-                            url:'http://10.10.90.113/cgi-bin/micon.cgi',
-                            contentType: 'application/json',
-                            success: function(result){}
-                            });   
+                            // $.ajax({
+                            // type:'GET',
+                            // url:'http://10.10.90.113/cgi-bin/micon.cgi',
+                            // contentType: 'application/json',
+                            // success: function(result){}
+                            // });   
+
+                            jQuery.get("http://10.37.90.113/cgi-bin/micon.cgi");
                    }
                </script> 
        
