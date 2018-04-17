@@ -201,15 +201,7 @@
               <button class="btn" id="startBedtime" onClick="bedtime()">Start Bedtime</button>
               
               <script type="text/javascript">
-
-              	function start()
-	      		{
-
-	                        
-	      		}
-
                 
-
                 function bedtime() {
 
 					var starshow = document.getElementById('lightSlider');
@@ -262,7 +254,7 @@
 	                            contentType: 'application/json',
 	                            success: function(result)
 	                            {
-	                                $("#motionDetected").append(Date() + " " + result);	                               
+	                                $("#motionDetected").append("\n" + Date() + " " + result);	                               
                                 	pause();	                      
 	                            }
 	                            
