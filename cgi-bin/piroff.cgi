@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+print "Content-type: application/json"
+print
+
 import wiringpi as wp
 import time
 
@@ -13,3 +16,6 @@ wp.pinMode(LED, 1)
 
 wp.digitalWrite(LED, 0)
 print "NO BEN"
+
+print
+

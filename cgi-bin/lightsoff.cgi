@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+print "Content-type: application/json"
+print
+
 import wiringpi as wp
 
 wp.wiringPiSetupGpio()
@@ -11,3 +14,5 @@ wp.pinMode(22, 1)
 wp.digitalWrite(19, 0)
 wp.digitalWrite(21, 0)
 wp.digitalWrite(22, 0)
+
+print

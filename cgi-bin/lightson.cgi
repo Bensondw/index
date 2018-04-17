@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+print "Content-type: application/json"
+print
+
 import wiringpi as wp
 
 import time
@@ -23,3 +26,4 @@ wp.digitalWrite(22, 1)
 #time.sleep(2)
 #wp.digitalWrite(22, 0)
 
+print
