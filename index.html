@@ -202,6 +202,21 @@
               
               <script type="text/javascript">
 
+              	function start()
+	      		{
+	      			return $.ajax({
+	                            type:'GET',
+	                            url:'http://10.37.90.113/cgi-bin/piron.cgi',
+	                            contentType: 'application/json',
+	                            success: function(result)
+	                            {
+	                                $("#motionDetected").append(result);
+	                            }
+	                            
+	      			});
+	                        
+	      		}
+
                 
 
                 function bedtime() {
@@ -262,6 +277,12 @@
 
 					}
 
+					
+
+				} 
+
+				function pause() {
+					
 					if (document.getElementById('startBedtime').innerHTML == "Pause")
 					{
 						document.getElementById('startBedtime').innerHTML = "Start Bedtime"
@@ -303,10 +324,11 @@
 						document.getElementById('musicPlaying').innerHTML = "Not Playing";
 
 						return;
-
 					}
 
-				} 
+				
+
+				}
 
 
               </script>
@@ -500,6 +522,12 @@
                   <td>Star Show: </td>
                   <td id="starLights" >Not Playing</td>
                   
+                </tr>
+
+                <tr>
+                	<td> Motion: </td>
+                	<td id="motionDetected">  </td>
+                	
                 </tr>
                 
               </table>
