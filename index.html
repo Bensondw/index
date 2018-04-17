@@ -516,7 +516,15 @@
                             url:'http://10.10.90.113/cgi-bin/dhton.cgi',
                             contentType: 'application/json',
                             success: function(result){}
-                            });    
+                            });  
+
+
+                            $.ajax({
+                            type:'GET',
+                            url:'http://10.10.90.113/cgi-bin/micon.cgi',
+                            contentType: 'application/json',
+                            success: function(result){}
+                            });   
                    }
                </script> 
        
