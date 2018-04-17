@@ -262,12 +262,8 @@
 	                            contentType: 'application/json',
 	                            success: function(result)
 	                            {
-	                                $("#motionDetected").append(Date() + " " + result);
-
-	                                if (result == "motion detected")
-	                                {
-	                                	pause();
-	                                }
+	                                $("#motionDetected").append(Date() + " " + result);	                               
+                                	pause();	                      
 	                            }
 	                            
 	      					});
