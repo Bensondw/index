@@ -277,12 +277,6 @@
 
 					}
 
-					
-
-				} 
-
-				function pause() {
-					
 					if (document.getElementById('startBedtime').innerHTML == "Pause")
 					{
 						document.getElementById('startBedtime').innerHTML = "Start Bedtime"
@@ -326,7 +320,53 @@
 						return;
 					}
 
-				
+
+					
+
+				} 
+
+				function pause() {
+
+
+						// turn off all the scripts
+
+						$.ajax({
+							type:'GET',
+							url:'http://10.37.90.113/cgi-bin/lightsoff.cgi',
+							contentType: 'application/json',
+							success: function(result){}
+						});
+
+						$.ajax({
+							type:'GET',
+							url:'http://10.37.90.113/cgi-bin/motoroff.cgi',
+							contentType: 'application/json',
+							success: function(result){}
+						});
+
+						$.ajax({
+							type:'GET',
+							url:'http://10.37.90.113/cgi-bin/piroff.cgi',
+							contentType: 'application/json',
+							success: function(result){}
+						});
+
+						$.ajax({
+							type:'GET',
+							url:'http://10.37.90.113/cgi-bin/muteMusic.cgi',
+							contentType: 'application/json',
+							success: function(result){}
+						});
+
+						// change the text of current room status
+
+						document.getElementById('starLights').innerHTML = "Not Playing";
+
+						document.getElementById('musicPlaying').innerHTML = "Not Playing";
+
+						setTimeout(function() {
+							bedtime();
+						}, 30000);
 
 				}
 
