@@ -363,7 +363,15 @@
               	function vidOFF() {
 
               			jQuery.get("http://10.37.90.113/cgi-bin/stopCam.cgi");
-              			document.getElementById('vidfeed').src = document.getElementById('vidfeed').src
+
+
+						
+
+						setTimeout(function() {
+							document.getElementById('vidfeed').src = document.getElementById('vidfeed').src;
+						}, 1000);
+
+              			// document.getElementById('vidfeed').src = document.getElementById('vidfeed').src;
               			
 
               			// var camIframe = document.getElementById('vidfeed');
@@ -403,7 +411,9 @@
 							success: function(result){}
 							});
 
-		                	document.getElementById('vidfeed').src = document.getElementById('vidfeed').src
+		                	setTimeout(function() {
+							document.getElementById('vidfeed').src = document.getElementById('vidfeed').src;
+						}, 1000);
 		                	// camIframe.contentWindow.location.reload(true);
 		                	//iframe.src = iframe.src;
 
@@ -421,7 +431,9 @@
 							success: function(result){}
 		                	});
 
-		                	document.getElementById('vidfeed').src = document.getElementById('vidfeed').src
+		                	setTimeout(function() {
+							document.getElementById('vidfeed').src = document.getElementById('vidfeed').src;
+						}, 1000);
 		                	// camIframe.contentWindow.location.reload(true);
 		                	//iframe.src = iframe.src;
 		                }
