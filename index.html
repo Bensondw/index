@@ -531,20 +531,19 @@
                   <th>Status</th>
                   
                 </tr>
-                <tr>
+                <!-- <tr>
                   <td>Temperature:</td>
                   <td id="temp" >72</td>
                   
                 </tr>
                 <tr>
                   <td>Humidity:</td>
-                  <td id="humidity" >14%</td>
-                  
-                </tr>
+		  <td></td>	
+		</tr> -->	
                 
                 <tr>
                   <td>Music Playing:</td>
-                  <td id="musicPlaying">Yes</td>
+                  <td id="musicPlaying">Not playing</td>
                   
                 </tr>
                 <tr>
@@ -561,21 +560,23 @@
                 
               </table>
 
-              <button class="btn" id="" onClick="onload()"> Refresh status </button>
+            <!--  <button class="btn" id="" onClick="onload()"> Refresh status </button> -->
 
               <br>
 
 
               <script>
                    function onload(){
-                            // $.ajax({
-                            // type:'GET',
-                            // url:'http://10.10.90.113/cgi-bin/dhton.cgi',
-                            // contentType: 'application/json',
-                            // success: function(result){}
-                            // });  
+                             $.ajax({
+                             type:'GET',
+                             url:'http://10.37.7.133/cgi-bin/Adafruit_Python_DHT/examples.AdafruitDHT.py?value1=2302&value2=12',
+                             contentType: 'application/json',
+                             success: function(result){
+                                 $("#temp").append("/n" + Date() + " " + result);
+                             }
+                             });  
 
-                            jQuery.get("http://10.37.7.133/cgi-bin/Adafruit_Python_DHT/examples/AdafruitDHT.py?value1=2302&value2=12");
+                           // jQuery.get("http://10.37.7.133/cgi-bin/Adafruit_Python_DHT/examples/AdafruitDHT.py?value1=2302&value2=12");
 
                             videoCamera();
 
